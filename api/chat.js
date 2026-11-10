@@ -1,13 +1,11 @@
-// Proxies Gemma chat streaming through the site's own server key.
+// Proxies Gemini chat streaming through the site's own server key.
 // POST /api/chat { model, body } -> Google's :streamGenerateContent SSE,
 // streamed back verbatim so the page's existing SSE parsing works unchanged.
 // The key lives only in the GEMINI_API_KEY env var — never in the page.
-// Gemma models do NOT accept systemInstruction, so the system prompt is
-// folded into the first user turn here, server-side.
+// (Switched from Gemma to gemini-3.5-flash-lite 2026-11-10: Google returns
+// 404 for all Gemma models on the Gemini API for this key.)
 var ALLOWED_MODELS = [
-  "gemma-3-27b-it",
-  "gemma-3-12b-it",
-  "gemma-3-4b-it"
+  "gemini-3.5-flash-lite"
 ];
 var SYSTEM_PROMPT = "You are PingX AI, a helpful AI assistant. Answer clearly and directly. Use markdown when it helps: short headings, bullet lists, tables for comparisons, and fenced code blocks for code. Match the language the user writes in.";
 
@@ -41,13 +39,8 @@ module.exports = async function (req, res) {
   }
   var body = data.body || {};
   var contents = (body.contents || []).slice();
-  if (contents.length && contents[0].role === "user") {
-    var firstText = (contents[0].parts && contents[0].parts[0] && contents[0].parts[0].text) || "";
-    contents[0] = { role: "user", parts: [{ text: SYSTEM_PROMPT + "\n\n" + firstText }] };
-  } else if (!contents.length) {
-    contents = [{ role: "user", parts: [{ text: SYSTEM_PROMPT }] }];
-  }
   var payload = {
+    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
     contents: contents,
     generationConfig: body.generationConfig || { temperature: 0.7, maxOutputTokens: 2048 }
   };

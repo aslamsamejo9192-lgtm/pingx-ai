@@ -484,7 +484,7 @@
         <div class="sidebar-foot">
           <button class="side-action" id="connectBtn">
             <svg class="icon"><use href="#i-key"/></svg>
-            <span id="connectLabel">PingX Gemma</span>
+            <span id="connectLabel">PingX Flash</span>
             <span class="dot" id="connectDot"></span>
           </button>
           <button class="side-action" id="settingsBtn">
@@ -505,14 +505,12 @@
           <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open sidebar"><svg class="icon"><use href="#i-menu"/></svg></button>
           <div class="model-wrap">
             <select class="model-select" id="modelSelect" aria-label="Choose model">
-              <option value="gemma-3-27b-it" selected>PingX Gemma 27B</option>
-              <option value="gemma-3-12b-it">PingX Gemma 12B</option>
-              <option value="gemma-3-4b-it">PingX Gemma 4B</option>
+              <option value="gemini-3.5-flash-lite" selected>PingX Flash</option>
             </select>
             <svg class="icon chev"><use href="#i-chev"/></svg>
           </div>
           <div class="topbar-spacer"></div>
-          <span class="status-pill" id="statusPill"><span class="dot"></span><span class="pill-text" id="statusText">PingX Gemma</span><button id="statusAction">Settings</button></span>
+          <span class="status-pill" id="statusPill"><span class="dot"></span><span class="pill-text" id="statusText">PingX Flash</span><button id="statusAction">Settings</button></span>
           <button class="icon-btn" id="exportBtn" aria-label="Download this chat as a file" title="Download chat"><svg class="icon"><use href="#i-download"/></svg></button>
         </header>
 
@@ -538,7 +536,7 @@
         <div class="modal-head">
           <div>
             <h2 id="modalTitle">Settings</h2>
-            <p>PingX AI answers with Google's Gemma models (Gemma 3 27B by default) through the site's own server key — no key needed from you.</p>
+            <p>PingX AI answers with Google's Gemini Flash-Lite model through the site's own server key — no key needed from you.</p>
           </div>
           <button class="icon-btn" id="modalClose" aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
         </div>
@@ -560,7 +558,7 @@
         </div>
 
         <div class="about-box">
-          <strong>About PingX AI.</strong> A ChatGPT-style assistant powered by Google Gemma 3 (27B default, 12B / 4B also in the model menu) through the site's own server key — no key needed from you. Chats live in this tab only and are cleared when you close it.
+          <strong>About PingX AI.</strong> A ChatGPT-style assistant powered by Google Gemini Flash-Lite through the site's own server key — no key needed from you. Chats live in this tab only and are cleared when you close it.
         </div>
       </div>
     </div>
@@ -572,7 +570,7 @@
       /* ================= State (tab memory only — nothing is saved) ================= */
       var SYSTEM_PROMPT = "You are PingX AI, a helpful AI assistant. Answer clearly and directly. Use markdown when it helps: short headings, bullet lists, tables for comparisons, and fenced code blocks for code. Match the language the user writes in.";
       var state = {
-        model: "gemma-3-27b-it",
+        model: "gemini-3.5-flash-lite",
         chats: [],          // [{id, title, messages:[{role:'user'|'model', text, demo?}]}]
         activeId: null,
         busy: false,
@@ -795,7 +793,7 @@
         connectDot.classList.toggle("on", on);
         statusText.textContent = on ? modelLabel(state.model) + " connected" : "Not set up yet";
         statusAction.textContent = "Settings";
-        connectLabel.textContent = on ? modelLabel(state.model) + " connected" : "PingX Gemma";
+        connectLabel.textContent = on ? modelLabel(state.model) + " connected" : "PingX Flash";
         composerHint.textContent = on
           ? "Connected to " + modelLabel(state.model) + ". PingX AI can make mistakes — check important answers."
           : "PingX AI is not set up yet — the site owner needs to add the Gemini key.";
@@ -817,17 +815,14 @@
         if (status === 400) return "Google rejected the request (400). " + (msg || "Try a shorter message.");
         if (status === 403) return "Google refused the request (403). " + (msg || "Try again later.");
         if (status === 429) return "Gemini's free limit is busy right now (429). Wait a few seconds and tap Try again.";
-        if (status === 404) return "That model is not available right now. Try another Gemma model from the menu.";
+        if (status === 404) return "That model is not available right now. Try again in a moment.";
         if (!status) return "Could not reach PingX AI. Check your internet connection and tap Try again.";
         return "Google returned an error (" + status + "). " + msg;
       }
-      var MODEL_PREFS = ["gemma-3-27b-it", "gemma-3-12b-it", "gemma-3-4b-it"];
+      var MODEL_PREFS = ["gemini-3.5-flash-lite"];
       var MODEL_LABELS = {
-        "gemma-3-27b-it": "PingX Gemma 27B",
-        "gemma-3-12b-it": "PingX Gemma 12B",
-        "gemma-3-4b-it": "PingX Gemma 4B"
+        "gemini-3.5-flash-lite": "PingX Flash"
       };
-      function isGemmaModel(id) { return /^gemma/i.test(id || ""); }
       function modelLabel(id) { return MODEL_LABELS[id] || id; }
       function setModel(id) {
         state.model = id;
