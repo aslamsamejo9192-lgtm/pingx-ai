@@ -401,6 +401,58 @@
       .seg button { flex: 1; border: none; background: var(--bg); color: var(--text-2); font-weight: 600; font-size: 14px; height: 42px; }
       .seg button.on { background: var(--accent); color: #fff; }
       .about-box { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 14px; font-size: 13.5px; color: var(--text-2); }
+      /* ---------- Accounts / Profile ---------- */
+      .field input[type="email"] { width: 100%; border: 1px solid var(--border-strong); border-radius: 10px; background: var(--bg); color: var(--text); padding: 0 12px; height: 44px; font-size: 15px; font-family: inherit; }
+      .account-divider { border: none; border-top: 1px solid var(--border); margin: 10px 0 4px; }
+      .account-area { display: grid; gap: 8px; }
+      .guest-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .guest-actions .btn { height: 40px; font-size: 13.5px; padding: 0 8px; }
+      .account-note { font-size: 12px; color: var(--text-3); line-height: 1.45; margin: 0; padding: 0 2px; }
+      .user-card {
+        display: flex; align-items: center; gap: 11px; width: 100%; text-align: left;
+        padding: 9px 10px; border: 1px solid var(--border); border-radius: 12px;
+        background: var(--surface); color: var(--text);
+      }
+      .user-card:hover { background: var(--bg-soft); }
+      .user-avatar {
+        width: 38px; height: 38px; border-radius: 50%; flex: none; display: grid; place-items: center;
+        color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 16px;
+      }
+      .user-meta { flex: 1; min-width: 0; }
+      .user-meta strong { display: block; font-size: 14.5px; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .user-meta span { display: block; font-size: 12.5px; color: var(--text-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .user-card .icon { color: var(--text-3); width: 18px; height: 18px; }
+      .top-account-btn {
+        display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 13px;
+        border: 1px solid var(--border); border-radius: 999px; background: var(--surface);
+        color: var(--text); font-size: 13.5px; font-weight: 700; white-space: nowrap;
+      }
+      .top-account-btn:hover { background: var(--bg-soft); }
+      .top-account-btn .mini-avatar { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 11px; font-weight: 800; font-family: var(--font-display); }
+      .auth-tabs { margin-top: 4px; }
+      .auth-switch { margin-top: 16px; text-align: center; font-size: 14px; color: var(--text-2); }
+      .auth-switch button { border: none; background: none; color: var(--accent); font-weight: 700; font-size: 14px; padding: 0; min-height: 0; }
+      .btn.block { width: 100%; }
+      .settings-account {
+        display: flex; align-items: center; gap: 12px; border: 1px solid var(--border);
+        border-radius: 13px; padding: 12px 14px; background: var(--bg-soft);
+      }
+      .settings-account .user-meta strong { font-size: 15px; }
+      .section-title { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--text-3); margin: 22px 0 0; }
+      .section-title:first-of-type { margin-top: 10px; }
+      .profile-head { display: flex; align-items: center; gap: 16px; margin-top: 6px; }
+      .avatar-lg { width: 64px; height: 64px; border-radius: 50%; flex: none; display: grid; place-items: center; color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 26px; }
+      .profile-head h3 { font-family: var(--font-display); font-size: 19px; margin: 0; line-height: 1.25; overflow-wrap: anywhere; }
+      .profile-head p { margin: 3px 0 0; color: var(--text-2); font-size: 13.5px; overflow-wrap: anywhere; }
+      .member-line { display: inline-flex; align-items: center; gap: 6px; margin-top: 5px; font-size: 12.5px; color: var(--text-3); }
+      .member-line .icon { width: 14px; height: 14px; }
+      .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+      .stat-box { border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; background: var(--bg-soft); }
+      .stat-box strong { display: block; font-family: var(--font-display); font-size: 22px; line-height: 1.1; }
+      .stat-box span { font-size: 12.5px; color: var(--text-3); font-weight: 600; }
+      .danger-zone { margin-top: 22px; border: 1px solid var(--err-border); background: var(--err-bg); border-radius: 13px; padding: 14px; }
+      .danger-zone h4 { margin: 0 0 4px; font-size: 14.5px; color: var(--err-text); font-family: var(--font-display); }
+      .danger-zone p { margin: 0 0 12px; font-size: 13px; color: var(--err-text); }
       .toast {
         position: fixed; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(16px);
         background: var(--text); color: var(--bg); font-size: 14px; font-weight: 600;
@@ -423,6 +475,8 @@
         .scrim.show { opacity: 1; pointer-events: auto; }
         .menu-btn { display: inline-grid; }
         .status-pill .pill-text { display: none; }
+        .top-account-btn { padding: 0 9px; }
+        .top-account-btn span:last-child { display: none; }
         .thread { padding: 20px 14px 10px; gap: 22px; }
         .msg.user .msg-body { max-width: 88%; }
         .suggest-grid { grid-template-columns: 1fr; }
@@ -464,6 +518,10 @@
         <symbol id="i-pen-line" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
         <symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5A5.5 5.5 0 1 0 7.5 11.5c.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
         <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+        <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+        <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></symbol>
+        <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
       </defs>
     </svg>
 
@@ -494,6 +552,8 @@
             <svg class="icon"><use href="#i-trash"/></svg>
             <span>Clear all chats</span>
           </button>
+          <hr class="account-divider" />
+          <div class="account-area" id="accountArea"></div>
         </div>
       </aside>
       <div class="scrim" id="scrim"></div>
@@ -510,6 +570,7 @@
           </div>
           <div class="topbar-spacer"></div>
           <span class="status-pill" id="statusPill"><span class="dot"></span><span class="pill-text" id="statusText">PingX Flash</span><button id="statusAction">Settings</button></span>
+          <button class="top-account-btn" id="topAccountBtn" type="button"></button>
         </header>
 
         <div class="scroll" id="scroll">
@@ -540,6 +601,11 @@
 
 
 
+        <p class="section-title">Account</p>
+        <div class="field" style="margin-top:10px">
+          <div class="settings-account" id="settingsAccountRow"></div>
+        </div>
+
         <div class="field">
           <label>Appearance</label>
           <div class="seg" id="themeSeg">
@@ -556,11 +622,148 @@
       </div>
     </div>
 
+    <!-- ============ AUTH MODAL (Login / Create account) ============ -->
+    <div class="modal-backdrop" id="authBackdrop">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <div class="modal-head">
+          <div>
+            <h2 id="authTitle">Welcome to PingX AI</h2>
+            <p id="authSub">Log in to your account, or create a new one in seconds.</p>
+          </div>
+          <button class="icon-btn" id="authClose" aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+        </div>
+
+        <div class="seg auth-tabs" id="authTabs">
+          <button type="button" data-auth-tab="login">Log in</button>
+          <button type="button" data-auth-tab="register">Create account</button>
+        </div>
+
+        <!-- Login form -->
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <div class="key-row">
+              <input type="password" id="loginPassword" placeholder="Your password" autocomplete="current-password" style="flex:1;min-width:0;border:1px solid var(--border-strong);border-radius:10px;background:var(--bg);color:var(--text);padding:0 12px;height:44px;font-size:15px;font-family:inherit" />
+              <button class="btn" type="button" data-toggle-pw="loginPassword">Show</button>
+            </div>
+          </div>
+          <div class="form-msg" id="loginMsg" role="status"></div>
+          <div class="modal-actions">
+            <button class="btn primary block" type="submit" id="loginSubmit">Log in</button>
+          </div>
+          <p class="account-note" style="margin-top:12px;text-align:center">Accounts live only in this browser on this device, so there is no password recovery — keep your password safe.</p>
+          <p class="auth-switch">New to PingX AI? <button type="button" data-switch-auth="register">Create an account</button></p>
+        </form>
+
+        <!-- Register form -->
+        <form id="registerForm" novalidate style="display:none">
+          <div class="field">
+            <label for="regName">Full name</label>
+            <input type="text" id="regName" placeholder="Your name" autocomplete="name" style="width:100%;border:1px solid var(--border-strong);border-radius:10px;background:var(--bg);color:var(--text);padding:0 12px;height:44px;font-size:15px;font-family:inherit" />
+          </div>
+          <div class="field">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="regPassword">Password</label>
+            <div class="key-row">
+              <input type="password" id="regPassword" placeholder="At least 6 characters" autocomplete="new-password" style="flex:1;min-width:0;border:1px solid var(--border-strong);border-radius:10px;background:var(--bg);color:var(--text);padding:0 12px;height:44px;font-size:15px;font-family:inherit" />
+              <button class="btn" type="button" data-toggle-pw="regPassword">Show</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="regConfirm">Confirm password</label>
+            <input type="password" id="regConfirm" placeholder="Type the password again" autocomplete="new-password" style="width:100%;border:1px solid var(--border-strong);border-radius:10px;background:var(--bg);color:var(--text);padding:0 12px;height:44px;font-size:15px;font-family:inherit" />
+          </div>
+          <div class="form-msg" id="registerMsg" role="status"></div>
+          <div class="modal-actions">
+            <button class="btn primary block" type="submit" id="registerSubmit">Create account</button>
+          </div>
+          <p class="account-note" style="margin-top:12px;text-align:center">Saved in this browser only — your account and chats stay on this device, separate from any other device.</p>
+          <p class="auth-switch">Already have an account? <button type="button" data-switch-auth="login">Log in</button></p>
+        </form>
+
+        <div class="modal-actions" style="margin-top:6px">
+          <button class="btn block" type="button" id="guestBtn">Continue as guest</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ PROFILE MODAL ============ -->
+    <div class="modal-backdrop" id="profileBackdrop">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+        <div class="modal-head">
+          <div>
+            <h2 id="profileTitle">Profile</h2>
+            <p>Your account on this device.</p>
+          </div>
+          <button class="icon-btn" id="profileClose" aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+        </div>
+
+        <div class="profile-head">
+          <div class="avatar-lg" id="profileAvatar">?</div>
+          <div style="min-width:0">
+            <h3 id="profileName">—</h3>
+            <p id="profileEmail">—</p>
+            <span class="member-line"><svg class="icon"><use href="#i-calendar"/></svg><span id="profileSince">—</span></span>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box"><strong id="statChats">0</strong><span>Chats</span></div>
+          <div class="stat-box"><strong id="statMessages">0</strong><span>Messages</span></div>
+        </div>
+
+        <p class="section-title">Edit profile</p>
+        <div class="field" style="margin-top:10px">
+          <label for="editName">Display name</label>
+          <input type="text" id="editName" placeholder="Your name" style="width:100%;border:1px solid var(--border-strong);border-radius:10px;background:var(--bg);color:var(--text);padding:0 12px;height:44px;font-size:15px;font-family:inherit" />
+          <p class="hint">Email cannot be changed for a browser account.</p>
+        </div>
+        <div class="form-msg" id="profileMsg" role="status"></div>
+        <div class="modal-actions">
+          <button class="btn primary" type="button" id="saveNameBtn">Save name</button>
+        </div>
+
+        <p class="section-title">Change password</p>
+        <div class="field" style="margin-top:10px">
+          <label for="pwCurrent">Current password</label>
+          <input type="password" id="pwCurrent" autocomplete="current-password" style="width:100%;border:1px solid var(--border-strong);border-radius:10px;background:var(--bg);color:var(--text);padding:0 12px;height:44px;font-size:15px;font-family:inherit" />
+        </div>
+        <div class="field">
+          <label for="pwNew">New password</label>
+          <input type="password" id="pwNew" placeholder="At least 6 characters" autocomplete="new-password" style="width:100%;border:1px solid var(--border-strong);border-radius:10px;background:var(--bg);color:var(--text);padding:0 12px;height:44px;font-size:15px;font-family:inherit" />
+        </div>
+        <div class="field">
+          <label for="pwConfirm">Confirm new password</label>
+          <input type="password" id="pwConfirm" autocomplete="new-password" style="width:100%;border:1px solid var(--border-strong);border-radius:10px;background:var(--bg);color:var(--text);padding:0 12px;height:44px;font-size:15px;font-family:inherit" />
+        </div>
+        <div class="form-msg" id="pwMsg" role="status"></div>
+        <div class="modal-actions">
+          <button class="btn" type="button" id="changePwBtn">Change password</button>
+          <span class="spacer"></span>
+          <button class="btn" type="button" id="openSettingsFromProfile">Settings</button>
+          <button class="btn danger" type="button" id="logoutBtn"><svg class="icon sm"><use href="#i-logout"/></svg> Log out</button>
+        </div>
+
+        <div class="danger-zone">
+          <h4>Delete account</h4>
+          <p>Removes this account and all of its chats from this browser. This cannot be undone.</p>
+          <button class="btn danger" type="button" id="deleteAccountBtn">Delete my account</button>
+        </div>
+      </div>
+    </div>
+
     <div class="toast" id="toast" role="status"></div>
 
     <script>
       "use strict";
-      /* ================= State (tab memory only — nothing is saved) ================= */
+      /* ================= State — accounts & chats are saved in this browser only (localStorage), separately per account ================= */
       var SYSTEM_PROMPT = "You are PingX AI, a helpful AI assistant. Answer clearly and directly. Use markdown when it helps: short headings, bullet lists, tables for comparisons, and fenced code blocks for code. Match the language the user writes in.";
       var state = {
         model: "gemini-3.5-flash-lite",
@@ -568,11 +771,48 @@
         activeId: null,
         busy: false,
         abort: null,
-        theme: "system"
+        theme: "system",
+        user: null          // {id, name, email, createdAt} — browser account, this device only
       };
       var uid = 1;
       var serverReady = false;
       function nextId() { return "c" + (uid++) + "_" + Date.now().toString(36); }
+      var LS_USERS = "pingx_users_v1", LS_SESSION = "pingx_session_v1", LS_THEME = "pingx_theme_v1";
+      function lsGet(k, fallback) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : fallback; } catch (e) { return fallback; } }
+      function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+      function lsDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+      function loadUsers() { var u = lsGet(LS_USERS, []); return Array.isArray(u) ? u : []; }
+      function saveUsers(u) { lsSet(LS_USERS, u); }
+      function chatsKey() { return "pingx_chats_v1_" + (state.user ? state.user.id : "guest"); }
+      function persistChats() {
+        var clean = state.chats.map(function (c) {
+          return { id: c.id, title: c.title, messages: c.messages.filter(function (m) { return !m.pending; }).map(function (m) { var o = { role: m.role, text: m.text }; if (m.demo) o.demo = true; if (m.error) o.error = true; return o; }) };
+        });
+        lsSet(chatsKey(), { chats: clean, activeId: state.activeId });
+      }
+      function loadPersistedChats() {
+        var saved = lsGet(chatsKey(), null);
+        if (saved && Array.isArray(saved.chats) && saved.chats.length) {
+          saved.chats.forEach(function (c) { var n = parseInt(String(c.id).split("_")[0].slice(1), 10); if (!isNaN(n) && n >= uid) uid = n + 1; });
+          state.chats = saved.chats; state.activeId = saved.activeId || saved.chats[0].id;
+          return true;
+        }
+        return false;
+      }
+      function hashPassword(pw) {
+        var data = new TextEncoder().encode("pingx::" + pw);
+        if (window.crypto && crypto.subtle && crypto.subtle.digest) {
+          return crypto.subtle.digest("SHA-256", data).then(function (buf) {
+            return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
+          }).catch(function () { return simpleHash(pw); });
+        }
+        return Promise.resolve(simpleHash(pw));
+      }
+      function simpleHash(pw) { var h = 5381; for (var i = 0; i < pw.length; i++) h = ((h << 5) + h + pw.charCodeAt(i)) >>> 0; return "s" + h.toString(16) + pw.length; }
+      var AVATAR_COLORS = ["#ee0407", "#0f766e", "#1d4ed8", "#7c3aed", "#b45309", "#be185d", "#15803d", "#0369a1"];
+      function avatarColor(seed) { var s = String(seed || "?"), n = 0; for (var i = 0; i < s.length; i++) n += s.charCodeAt(i); return AVATAR_COLORS[n % AVATAR_COLORS.length]; }
+      function initials(name) { var p = String(name || "?").trim().split(/\s+/); return ((p[0] ? p[0].charAt(0) : "?") + (p.length > 1 ? p[p.length - 1].charAt(0) : "")).toUpperCase(); }
+      function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(e || "").trim()); }
 
       /* ================= Element refs ================= */
       function $(id) { return document.getElementById(id); }
@@ -582,7 +822,9 @@
           modelSelect = $("modelSelect"), statusPill = $("statusPill"), statusText = $("statusText"),
           statusAction = $("statusAction"), connectDot = $("connectDot"), connectLabel = $("connectLabel"),
           composerHint = $("composerHint"), toastEl = $("toast"),
-          modal = $("modalBackdrop");
+          modal = $("modalBackdrop"),
+          accountArea = $("accountArea"), topAccountBtn = $("topAccountBtn"),
+          authBackdrop = $("authBackdrop"), profileBackdrop = $("profileBackdrop");
 
       var toastTimer = null;
       function toast(msg) {
@@ -711,6 +953,7 @@
           '" aria-label="' + label + '" title="' + label + '"><svg class="icon"><use href="#i-' + name + '"/></svg></button>';
       }
       function renderSidebar() {
+        persistChats();
         if (!state.chats.length) {
           chatListEl.innerHTML = '<p class="chat-list-empty">No chats yet. Start a new chat to begin.</p>';
           return;
@@ -730,12 +973,13 @@
         { icon: "zap", title: "Make a study plan", sub: "30 days for an entry test", prompt: "Make a 30-day study plan for a medical entry test (MDCAT), with daily goals." }
       ];
       function renderMain() {
+        persistChats();
         var chat = activeChat();
         renderBanner();
         if (!chat || !chat.messages.length) {
           contentSlot.innerHTML =
             '<div class="empty"><div class="empty-mark">P</div>' +
-            "<h1>How can I help you today?</h1>" +
+            "<h1>" + (state.user ? "How can I help you today, " + escapeHtml(String(state.user.name || "").split(" ")[0]) + "?" : "How can I help you today?") + "</h1>" +
             "<p>Ask anything — essays, code, explanations, study plans, translations. " +
             (serverReady ? "You are connected to " + modelLabel(state.model) + "." : "PingX AI is not set up yet — the site owner needs to add the Gemini key.") + "</p>" +
             '<div class="suggest-grid">' + SUGGESTIONS.map(function (s, i) {
@@ -1071,9 +1315,183 @@
       scrim.addEventListener("click", closeSidebarMobile);
       modelSelect.addEventListener("change", function () { state.model = modelSelect.value; updateConnectionUI(); toast("Model: " + modelSelect.options[modelSelect.selectedIndex].text); });
 
+      /* ================= Account UI ================= */
+      function renderAccountUI() {
+        if (state.user) {
+          var col = avatarColor(state.user.email), ini = initials(state.user.name);
+          accountArea.innerHTML =
+            '<button type="button" class="user-card" id="userCardBtn"><span class="user-avatar" style="background:' + col + '">' + escapeHtml(ini) + '</span>' +
+            '<span class="user-meta"><strong>' + escapeHtml(state.user.name) + '</strong><span>' + escapeHtml(state.user.email) + '</span></span>' +
+            '<svg class="icon"><use href="#i-chev-r"/></svg></button>';
+          topAccountBtn.innerHTML = '<span class="mini-avatar" style="background:' + col + '">' + escapeHtml(ini) + '</span><span>' + escapeHtml(String(state.user.name).split(" ")[0]) + '</span>';
+          topAccountBtn.setAttribute("aria-label", "Open profile");
+          $("userCardBtn").addEventListener("click", function () { closeSidebarMobile(); openProfile(); });
+        } else {
+          accountArea.innerHTML =
+            '<div class="guest-actions"><button type="button" class="btn" id="guestLoginBtn">Log in</button>' +
+            '<button type="button" class="btn primary" id="guestRegisterBtn">Create account</button></div>' +
+            '<p class="account-note">Guest mode — accounts &amp; chats save in this browser only.</p>';
+          topAccountBtn.innerHTML = '<svg class="icon sm"><use href="#i-user"/></svg><span>Log in</span>';
+          topAccountBtn.setAttribute("aria-label", "Log in or create account");
+          $("guestLoginBtn").addEventListener("click", function () { closeSidebarMobile(); openAuth("login"); });
+          $("guestRegisterBtn").addEventListener("click", function () { closeSidebarMobile(); openAuth("register"); });
+        }
+        renderSettingsAccount();
+      }
+      function renderSettingsAccount() {
+        var row = $("settingsAccountRow");
+        if (!row) return;
+        if (state.user) {
+          row.innerHTML = '<span class="user-avatar" style="background:' + avatarColor(state.user.email) + '">' + escapeHtml(initials(state.user.name)) + '</span>' +
+            '<span class="user-meta"><strong>' + escapeHtml(state.user.name) + '</strong><span>' + escapeHtml(state.user.email) + '</span></span>' +
+            '<button type="button" class="btn" id="settingsProfileBtn" style="height:38px">Profile</button>';
+          $("settingsProfileBtn").addEventListener("click", function () { closeModal(); openProfile(); });
+        } else {
+          row.innerHTML = '<span class="user-avatar" style="background:var(--surface-2);color:var(--text-2)"><svg class="icon"><use href="#i-user"/></svg></span>' +
+            '<span class="user-meta"><strong>Guest</strong><span>No account yet — chats save on this device</span></span>' +
+            '<button type="button" class="btn primary" id="settingsLoginBtn" style="height:38px">Log in</button>';
+          $("settingsLoginBtn").addEventListener("click", function () { closeModal(); openAuth("login"); });
+        }
+      }
+      topAccountBtn.addEventListener("click", function () { if (state.user) openProfile(); else openAuth("login"); });
+
+      /* ================= Auth (Login / Create account) ================= */
+      var authMode = "login";
+      function setAuthMode(mode) {
+        authMode = mode;
+        $("loginForm").style.display = mode === "login" ? "" : "none";
+        $("registerForm").style.display = mode === "register" ? "" : "none";
+        $("authTitle").textContent = mode === "login" ? "Welcome back" : "Create your account";
+        $("authSub").textContent = mode === "login" ? "Log in to see your chats on this device." : "Free and instant — saved only in this browser.";
+        document.querySelectorAll("#authTabs button").forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-auth-tab") === mode); });
+        $("loginMsg").className = "form-msg"; $("registerMsg").className = "form-msg";
+      }
+      function openAuth(mode) { setAuthMode(mode || "login"); authBackdrop.classList.add("open"); setTimeout(function () { var f = $(authMode === "login" ? "loginEmail" : "regName"); if (f) f.focus(); }, 60); }
+      function closeAuth() { authBackdrop.classList.remove("open"); }
+      $("authClose").addEventListener("click", closeAuth);
+      $("guestBtn").addEventListener("click", closeAuth);
+      authBackdrop.addEventListener("click", function (e) { if (e.target === authBackdrop) closeAuth(); });
+      $("authTabs").addEventListener("click", function (e) { var b = e.target.closest("[data-auth-tab]"); if (b) setAuthMode(b.getAttribute("data-auth-tab")); });
+      document.querySelectorAll("[data-switch-auth]").forEach(function (b) { b.addEventListener("click", function () { setAuthMode(b.getAttribute("data-switch-auth")); }); });
+      document.querySelectorAll("[data-toggle-pw]").forEach(function (b) {
+        b.addEventListener("click", function () { var inp = $(b.getAttribute("data-toggle-pw")); var show = inp.type === "password"; inp.type = show ? "text" : "password"; b.textContent = show ? "Hide" : "Show"; });
+      });
+      function authMsg(id, msg, ok) { var el = $(id); el.className = "form-msg " + (ok ? "ok" : "err"); el.textContent = msg; }
+      function applySession(user) {
+        persistChats();
+        state.user = user;
+        if (user) lsSet(LS_SESSION, { id: user.id }); else lsDel(LS_SESSION);
+        state.chats = []; state.activeId = null;
+        if (!loadPersistedChats()) { var c = { id: nextId(), title: "New chat", messages: [] }; state.chats = [c]; state.activeId = c.id; persistChats(); }
+        renderAccountUI(); renderSidebar(); renderMain();
+      }
+      $("registerForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var name = $("regName").value.trim(), email = $("regEmail").value.trim().toLowerCase(), pw = $("regPassword").value, cf = $("regConfirm").value;
+        if (name.length < 2) { authMsg("registerMsg", "Please enter your name."); return; }
+        if (!validEmail(email)) { authMsg("registerMsg", "Please enter a valid email address."); return; }
+        if (pw.length < 6) { authMsg("registerMsg", "Password must be at least 6 characters."); return; }
+        if (pw !== cf) { authMsg("registerMsg", "Passwords do not match."); return; }
+        var users = loadUsers();
+        for (var i = 0; i < users.length; i++) if (users[i].email === email) { authMsg("registerMsg", "An account with this email already exists in this browser. Log in instead."); return; }
+        var btn = $("registerSubmit"); btn.disabled = true; btn.textContent = "Creating…";
+        hashPassword(pw).then(function (hash) {
+          var user = { id: "u" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7), name: name, email: email, passHash: hash, createdAt: Date.now() };
+          users.push(user); saveUsers(users);
+          btn.disabled = false; btn.textContent = "Create account";
+          $("registerForm").reset();
+          applySession({ id: user.id, name: user.name, email: user.email, createdAt: user.createdAt });
+          closeAuth(); toast("Account created — welcome, " + name.split(" ")[0] + "!");
+        });
+      });
+      $("loginForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var email = $("loginEmail").value.trim().toLowerCase(), pw = $("loginPassword").value;
+        if (!validEmail(email)) { authMsg("loginMsg", "Please enter a valid email address."); return; }
+        if (!pw) { authMsg("loginMsg", "Please enter your password."); return; }
+        var users = loadUsers(), found = null;
+        for (var i = 0; i < users.length; i++) if (users[i].email === email) found = users[i];
+        if (!found) { authMsg("loginMsg", "No account with this email in this browser. Create an account first."); return; }
+        var btn = $("loginSubmit"); btn.disabled = true; btn.textContent = "Logging in…";
+        hashPassword(pw).then(function (hash) {
+          btn.disabled = false; btn.textContent = "Log in";
+          if (hash !== found.passHash) { authMsg("loginMsg", "Wrong password. Try again."); return; }
+          $("loginForm").reset();
+          applySession({ id: found.id, name: found.name, email: found.email, createdAt: found.createdAt });
+          closeAuth(); toast("Welcome back, " + found.name.split(" ")[0] + "!");
+        });
+      });
+      function logOut() {
+        applySession(null);
+        closeProfile(); toast("Logged out — you are in guest mode now");
+      }
+
+      /* ================= Profile ================= */
+      function openProfile() {
+        if (!state.user) { openAuth("login"); return; }
+        $("profileAvatar").textContent = initials(state.user.name);
+        $("profileAvatar").style.background = avatarColor(state.user.email);
+        $("profileName").textContent = state.user.name;
+        $("profileEmail").textContent = state.user.email;
+        $("profileSince").textContent = "Member since " + new Date(state.user.createdAt || Date.now()).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+        var msgs = 0; state.chats.forEach(function (c) { msgs += c.messages.length; });
+        $("statChats").textContent = state.chats.filter(function (c) { return c.messages.length; }).length;
+        $("statMessages").textContent = msgs;
+        $("editName").value = state.user.name;
+        $("pwCurrent").value = ""; $("pwNew").value = ""; $("pwConfirm").value = "";
+        $("profileMsg").className = "form-msg"; $("pwMsg").className = "form-msg";
+        var del = $("deleteAccountBtn"); del.textContent = "Delete my account"; del.removeAttribute("data-armed");
+        profileBackdrop.classList.add("open");
+      }
+      function closeProfile() { profileBackdrop.classList.remove("open"); }
+      $("profileClose").addEventListener("click", closeProfile);
+      profileBackdrop.addEventListener("click", function (e) { if (e.target === profileBackdrop) closeProfile(); });
+      $("logoutBtn").addEventListener("click", logOut);
+      $("openSettingsFromProfile").addEventListener("click", function () { closeProfile(); openModal(); });
+      $("saveNameBtn").addEventListener("click", function () {
+        var name = $("editName").value.trim();
+        if (name.length < 2) { authMsg("profileMsg", "Name must be at least 2 characters."); return; }
+        var users = loadUsers();
+        for (var i = 0; i < users.length; i++) if (users[i].id === state.user.id) users[i].name = name;
+        saveUsers(users); state.user.name = name;
+        $("profileName").textContent = name; $("profileAvatar").textContent = initials(name);
+        renderAccountUI(); renderMain();
+        authMsg("profileMsg", "Name saved.", true); toast("Profile updated");
+      });
+      $("changePwBtn").addEventListener("click", function () {
+        var cur = $("pwCurrent").value, nw = $("pwNew").value, cf = $("pwConfirm").value;
+        if (!cur || !nw) { authMsg("pwMsg", "Fill in your current and new password."); return; }
+        if (nw.length < 6) { authMsg("pwMsg", "New password must be at least 6 characters."); return; }
+        if (nw !== cf) { authMsg("pwMsg", "New passwords do not match."); return; }
+        var users = loadUsers(), found = null;
+        for (var i = 0; i < users.length; i++) if (users[i].id === state.user.id) found = users[i];
+        if (!found) return;
+        hashPassword(cur).then(function (h) {
+          if (h !== found.passHash) { authMsg("pwMsg", "Current password is wrong."); return; }
+          hashPassword(nw).then(function (nh) {
+            found.passHash = nh; saveUsers(users);
+            $("pwCurrent").value = ""; $("pwNew").value = ""; $("pwConfirm").value = "";
+            authMsg("pwMsg", "Password changed.", true); toast("Password changed");
+          });
+        });
+      });
+      $("deleteAccountBtn").addEventListener("click", function () {
+        var btn = this;
+        if (!btn.getAttribute("data-armed")) { btn.setAttribute("data-armed", "1"); btn.textContent = "Tap again to confirm delete"; return; }
+        var users = loadUsers().filter(function (u) { return u.id !== state.user.id; });
+        saveUsers(users); lsDel("pingx_chats_v1_" + state.user.id);
+        state.user = null; lsDel(LS_SESSION);
+        state.chats = []; state.activeId = null;
+        if (!loadPersistedChats()) { var c = { id: nextId(), title: "New chat", messages: [] }; state.chats = [c]; state.activeId = c.id; }
+        closeProfile(); renderAccountUI(); renderSidebar(); renderMain();
+        toast("Account deleted from this browser");
+      });
+
       /* ================= Modal / settings ================= */
       function openModal() {
+        renderSettingsAccount();
         modal.classList.add("open");
+        modal.querySelector(".modal").scrollTop = 0;
       }
       function closeModal() { modal.classList.remove("open"); }
       $("connectBtn").addEventListener("click", openModal);
@@ -1082,7 +1500,7 @@
       $("modalClose").addEventListener("click", closeModal);
       $("modalCancel").addEventListener("click", closeModal);
       modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
-      document.addEventListener("keydown", function (e) { if (e.key === "Escape") { closeModal(); closeSidebarMobile(); } });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") { closeModal(); closeSidebarMobile(); closeAuth(); closeProfile(); } });
       /* Theme */
       var themeSeg = $("themeSeg");
       function applyTheme() {
@@ -1096,17 +1514,29 @@
         var b = e.target.closest("[data-theme-val]");
         if (!b) return;
         state.theme = b.getAttribute("data-theme-val");
+        lsSet(LS_THEME, state.theme);
         applyTheme();
       });
 
+
       /* ================= Init ================= */
+      state.theme = lsGet(LS_THEME, "system") || "system";
+      (function restoreSession() {
+        var s = lsGet(LS_SESSION, null);
+        if (!s || !s.id) return;
+        var users = loadUsers();
+        for (var i = 0; i < users.length; i++) if (users[i].id === s.id) {
+          state.user = { id: users[i].id, name: users[i].name, email: users[i].email, createdAt: users[i].createdAt };
+        }
+      })();
       fetch("/api/status").then(function (r) { return r.json(); }).then(function (j) {
         serverReady = !!(j && j.gemini);
         updateConnectionUI(); renderMain();
       }).catch(function () { /* status check failed — leave the not-set-up notice on */ });
       applyTheme();
       updateConnectionUI();
-      newChat();
+      renderAccountUI();
+      if (!loadPersistedChats()) newChat(); else { renderSidebar(); renderMain(); }
       setBusy(false);
     </script>
   </body>
